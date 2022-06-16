@@ -3,11 +3,14 @@
 {{ post_detail.title }}
 <h2>본문</h2>
 {{ post_detail.content }}
-
+<br>
+{% if post_detail.photo %}
+    <img src="{{ post_detail.photo.url }}" alt="" height="600">
+{% endif %}
 <br/><br/>
 {% if post_detail.video %}
     <div>
-    {% video post.video as youtube %}
+    {% video post_detail.video as youtube %}
       <iframe class="embed-responsive-item" src="{{ youtube.url }}" 
       frameborder="0" allowfullscreen></iframe>
     {% endvideo %}
