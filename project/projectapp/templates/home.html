@@ -1,0 +1,22 @@
+<h1>embed video test</h1>
+
+<a href="{% url 'modelform' %}">새 글 작성</a>
+
+{% load embed_video_tags %}
+{% for post in posts %}
+<div>
+    <div>
+        <p>{{ post.title }}</p>
+        <p>{{ post.content }}</p>
+        <a href="{% url 'details' post.id %}"><h3>{{ post.title }}</h3></a>
+
+        <div>
+            {% video post.video as youtube %}
+              <iframe class="embed-responsive-item" src="{{ youtube.url }}" 
+              frameborder="0" allowfullscreen></iframe>
+            {% endvideo %}
+        </div> 
+    
+    </div>
+</div>
+{% endfor %}

@@ -1,0 +1,15 @@
+{% load embed_video_tags %}
+<h1>제목</h1>
+{{ post_detail.title }}
+<h2>본문</h2>
+{{ post_detail.content }}
+
+<br/><br/>
+{% if post_detail.video %}
+    <div>
+    {% video post.video as youtube %}
+      <iframe class="embed-responsive-item" src="{{ youtube.url }}" 
+      frameborder="0" allowfullscreen></iframe>
+    {% endvideo %}
+    </div>
+{% endif %}
